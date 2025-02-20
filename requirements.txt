@@ -1,5 +1,0 @@
-lightfm
-pandas
-numpy
-matplotlib
-scipy
