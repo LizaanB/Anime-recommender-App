@@ -1,4 +1,3 @@
-# app.py
 import streamlit as st
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -32,7 +31,9 @@ anime_title = st.selectbox('Select an anime:', df['title'])
 if st.button('Recommend'):
     tfidf = TfidfVectorizer(stop_words='english')
     tfidf_matrix = tfidf.fit_transform(df['description'])
+    print(tfidf_matrix)  # Debug statement
     cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
+    print(cosine_sim)  # Debug statement
     recommendations = get_recommendations(anime_title, cosine_sim)
     st.write('**Recommendations:**')
     for anime in recommendations:
